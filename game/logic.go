@@ -24,18 +24,6 @@ func (g *Game) NewGame() {
 	g.PlayerXTurn = true
 }
 
-func (g *Game) PrintGame() {
-	var pieces = []rune{'_', 'X', 'O'}
-	fmt.Println("---------------")
-	for _, x := range g.GameSpace {
-		for _, c := range x {
-			fmt.Printf("%-4c", pieces[c])
-		}
-		fmt.Println()
-	}
-	fmt.Println("---------------")
-}
-
 func (g *Game) BoardIsFull() bool {
 	var blanks = 0
 	var emptyPositions []string
@@ -43,7 +31,7 @@ func (g *Game) BoardIsFull() bool {
 		for j, c := range x {
 			if c == blank {
 				blanks++
-				emptyPositions = append(emptyPositions, fmt.Sprintf("%d,%d", i, j))
+				emptyPositions = append(emptyPositions, fmt.Sprintf("%d%d", i, j))
 			}
 		}
 	}
@@ -108,7 +96,7 @@ func (g *Game) Turn(i, j int) (err error) {
 }
 
 func (g *Game) isPositionEmpty(i, j int) bool {
-	coordinates := fmt.Sprintf("%d,%d", i, j)
+	coordinates := fmt.Sprintf("%d%d", i, j)
 	for _, pos := range g.EmptyPositions {
 		if pos == coordinates {
 			return true
