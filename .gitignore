@@ -2,3 +2,5 @@ tmp
 build
 *.log
 logs/*
+.env
+dockerfiles/*
