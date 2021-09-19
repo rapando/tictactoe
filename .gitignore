@@ -3,4 +3,4 @@ build
 *.log
 logs/*
 .env
-dockerfiles/*
+dockerdata/*
